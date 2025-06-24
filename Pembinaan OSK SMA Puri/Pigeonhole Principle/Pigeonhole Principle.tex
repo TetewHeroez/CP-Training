@@ -1,0 +1,210 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{colortbl,tabularx,mathrsfs,calligra}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{ragged2e}
+\usepackage[bahasa]{babel}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{ulem}
+\usepackage{pgfplots, tkz-euclide,calc}
+\pgfplotsset{compat=1.18}
+\usepackage{listings}
+
+\graphicspath{{C:/Users/teoso/OneDrive/Documents/Tugas Kuliah/Template Math Depart/}{./foto/}}
+
+\definecolor{HIMAmuda}{HTML}{01D1FD}
+\definecolor{HIMAtua}{HTML}{02016A}
+\definecolor{HIMAabu}{HTML}{CBCBCC}
+\definecolor{PastelGreen}{HTML}{77DD77}
+
+\usetheme{Madrid}
+
+\setbeamercolor{palette primary}{bg=HIMAtua,fg=white}
+\setbeamercolor{palette secondary}{bg=HIMAmuda,fg=black}
+\setbeamercolor{palette tertiary}{bg=HIMAabu,fg=black}
+\setbeamercolor{palette quaternary}{bg=HIMAmuda,fg=white}
+\setbeamercolor{structure}{fg=HIMAmuda} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=HIMAtua} % TOC sections
+\setbeamercolor{bibliography item}{parent=palette secondary}
+\setbeamercolor*{bibliography entry author}{parent=section in toc}
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\tikzstyle{startstop} = [ellipse, minimum width=1cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{decision} = [diamond, minimum width=1cm, minimum height=1cm, text centered, draw=black, fill=blue!50]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usefonttheme{professionalfonts}
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+% \setbeamercovered{transparent}
+
+
+\theoremstyle{definition}
+% \numberwithin{subsection}{section}
+\newtheorem{definisi}{Definisi}
+\newtheorem{teorema}{Teorema}
+\newtheorem{contoh}{Contoh}
+\newtheorem{latihan}{Latihan}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+
+
+\AtBeginEnvironment{contoh}{%
+\setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+\setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+\setbeamercolor{item}{fg=example text.fg}
+}
+\AtBeginEnvironment{definisi}{
+\setbeamercolor{block title}{fg=white,bg=HIMAtua}
+\setbeamercolor{block body}{parent=normal text,bg=HIMAtua!30!white}
+\setbeamercolor{item}{fg=HIMAtua}
+}
+\AtBeginEnvironment{latihan}{%
+  \setbeamercolor{block title}{fg=white,bg=yellow!50!orange} 
+  \setbeamercolor{block body}{parent=normal text,bg=yellow!30!white} 
+  \setbeamercolor{item}{fg=yellow!50!orange}
+}
+\AtBeginEnvironment{teorema}{
+  \setbeamercolor{block title}{bg=darkgray,fg=white}
+  \setbeamercolor{block body}{parent=pallette tertiary,bg=HIMAabu!30!white}
+  \setbeamercolor{item}{fg=white}
+}
+
+\date{Sabtu, 19 April 2025}
+\title[Kombinatorika]{Pigeonhole Principle}
+\author[Tew \& Haf]{Teosofi Hidayah Agung\\Hafidz Mulia}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}
+  Misalkan 10 titik berikut mempresentasikan 10 \textit{pigeon} dan 9 kotak berikut mempresentasikan 9 \textit{pigeonhole}. Apa yang terjadi jika kita harus menempatkan semua titik kedalam kotak-kotak tersebut?
+  \begin{center}
+    \begin{tikzpicture}
+
+      % Ukuran kotak dan titik
+      \def\s{1} % size of each cell
+      \def\r{2pt} % radius of dot
+      
+      % Matriks angka
+      \foreach \i in {0,1,2} {
+          \foreach \j in {0,1,2} {
+              \draw[very thick] (\j*\s,-\i*\s) rectangle ++(\s,-\s);
+          }
+      }
+      
+      % Angka-angka
+      \node at (0.5*\s,-0.5*\s) {};
+      \node at (1.5*\s,-0.5*\s) {};
+      \node at (2.5*\s,-0.5*\s) {};
+      \node at (0.5*\s,-1.5*\s) {};
+      \node at (1.5*\s,-1.5*\s) {};
+      \node at (2.5*\s,-1.5*\s) {};
+      \node at (0.5*\s,-2.5*\s) {};
+      \node at (1.5*\s,-2.5*\s) {};
+      \node at (2.5*\s,-2.5*\s) {};
+      
+      % Titik-titik merah
+      \foreach \j in {0,1} {
+    \foreach \i in {0,1,2,3,4} {
+      \fill[red] (4.5 + \j*0.5, -0.5 - \i*0.5) circle (\r);
+    }
+  }
+      \end{tikzpicture}
+  \end{center}
+  \onslide<2->{\textcolor{blue}{Kita dapat menyimpulkan bahwa setidaknya ada satu kotak yang memiliki lebih dari satu titik. Namun apa yang menjamin \textit{statement} ini benar?} }
+\end{frame}
+
+\begin{frame}{Daftar Isi}
+  \tableofcontents
+\end{frame}
+
+\section{Pigeonhole Principle}
+\subsection{Bentuk Sederhana}
+\begin{frame}
+  \frametitle{\insertsection}
+  \framesubtitle{\insertsubsection}
+  \begin{teorema}
+    Jika $n+1$ ekor merpati dan $n$ sangkar burung, maka \textcolor{red}{setidaknya ada} sangkar yang berisi \textcolor{red}{lebih dari satu} ekor merpati. 
+  \end{teorema}
+  \onslide<2->{\textbf{Bukti.}\\
+  Andaikan pernyataan tersebut salah, maka untuk setiap sangkar haruslah ditempati paling banyak satu ekor merpati. Namun jika ditotal maka merpati yang ditempatkan pada sarang haruslah kurang dari $n$ ekor. Hal ini bertentangan dengan asumsi bahwa ada $n+1$ merpati.}
+  \onslide<3->{\begin{teorema}[Generalisasi]
+    Jika $m$ objek diletakkan pada $n$ kotak, dengan $n<m$ maka \textcolor{red}{setidaknya ada} kotak yang berisi \textcolor{red}{setidaknya $\displaystyle\left\lceil \frac{m}{n} \right\rceil$} objek.
+  \end{teorema}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\insertsection}
+  \framesubtitle{\insertsubsection}
+  \begin{contoh}
+    Saat mengambil 3 kartu remi setidaknya ada 2 kartu warna merah atau 2 kartu warna hitam.
+  \end{contoh}
+  \begin{contoh}
+    Ketika bermain Mobile Legend secara \textit{fullteam}, setidaknya ada dua orang yang golongan darahnya sama.
+  \end{contoh}
+  \begin{contoh}
+    Diantara 37 orang pastilah ada 3 orang yang memiliki bulan lahir yang sama. 
+  \end{contoh}
+  \begin{contoh}
+    Dalam kelompok $n$ orang pasti ada dua orang yang memiliki jumlah teman yang sama dalam satu kelompok itu.
+  \end{contoh}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\insertsection}
+  \framesubtitle{\insertsubsection}
+  \textbf{Variasi lain:}
+\begin{itemize}
+  \item Jika terdapat \( n \) objek yang dimasukkan ke dalam \( n \) kotak dan tidak ada kotak yang kosong, maka setiap kotak berisi tepat satu objek.
+  
+  \item Jika terdapat \( n \) objek yang dimasukkan ke dalam \( n \) kotak dan tidak ada kotak yang berisi lebih dari satu objek, maka setiap kotak pasti berisi satu objek.
+\end{itemize}
+\end{frame}
+
+\subsection{Bentuk Kuat}
+\begin{frame}
+  \frametitle{\insertsection}
+  \framesubtitle{\insertsubsection}
+  \begin{teorema}[Strong Form]
+    Misalkan \( q_1, q_2, \dots, q_n \) adalah bilangan bulat positif. Jika terdapat sebanyak \( q_1 + q_2 + \cdots + q_n - n + 1 \) objek yang dibagi ke dalam \( n \) kotak, maka \textbf{pasti ada} setidaknya satu kotak ke-\( i \) yang berisi \textbf{minimal \( q_i \)} objek.
+  \end{teorema}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\insertsection}
+  \framesubtitle{\insertsubsection}
+  \begin{contoh}
+    Sebuah keranjang buah diisi dengan apel, pisang, dan jeruk. Berapa jumlah minimum buah yang harus dimasukkan ke dalam keranjang untuk menjamin bahwa terdapat setidaknya delapan apel, atau setidaknya enam pisang, atau setidaknya sembilan jeruk?
+  \end{contoh}
+  \onslide<2->{\textbf{Jawab:}\\
+  Menurut \textit{strong form} dari prinsip pigeonhole, yaitu:
+\[
+8 + 6 + 9 - 3 + 1 = 21
+\]
+maka diperlukan setidaknya \textbf{21 buah}, tanpa memandang bagaimana buah-buah itu dipilih, untuk menjamin bahwa keranjang tersebut memiliki salah satu dari properti yang diinginkan.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\insertsection}
+  \framesubtitle{\insertsubsection}
+  \begin{contoh}
+    Sebuah kantong berisi 100 apel, 100 pisang, 100 jeruk, dan 100 pir. Jika saya mengambil satu buah dari dalam kantong setiap satu menit, berapa lama waktu yang dibutuhkan agar saya dapat dipastikan telah mengambil \textbf{setidaknya selusin} dari jenis buah yang sama?
+  \end{contoh}
+\end{frame}
+
+\end{document}

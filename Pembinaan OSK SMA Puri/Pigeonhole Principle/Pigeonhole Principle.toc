@@ -1,0 +1,4 @@
+\babel@toc {bahasa}{}\relax 
+\beamer@sectionintoc {1}{Pigeonhole Principle}{5}{0}{1}
+\beamer@subsectionintoc {1}{1}{Bentuk Sederhana}{5}{0}{1}
+\beamer@subsectionintoc {1}{2}{Bentuk Kuat}{10}{0}{1}

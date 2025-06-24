@@ -1,0 +1,8 @@
+\babel@toc {bahasa}{}\relax 
+\beamer@sectionintoc {1}{Aturan Penjumlahan}{4}{0}{1}
+\beamer@sectionintoc {2}{Aturan Perkalian}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{\textit {Filling Slot}}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{Faktorial}{11}{0}{2}
+\beamer@sectionintoc {3}{Permutasi}{12}{0}{3}
+\beamer@subsectionintoc {3}{1}{Unsur yang Sama}{14}{0}{3}
+\beamer@sectionintoc {4}{Kombinasi}{17}{0}{4}

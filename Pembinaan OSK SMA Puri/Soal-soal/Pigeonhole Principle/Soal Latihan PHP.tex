@@ -1,0 +1,115 @@
+\documentclass[a4paper]{article}
+\usepackage{graphicx,tikz} 
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{animate}
+\usepackage{amsthm}
+\usepackage{caption}
+\usepackage{minted}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+	\geometry{
+		total = {160mm, 237mm},
+		left = 30mm,
+		right = 35mm,
+		top = 35mm,
+        bottom = 30mm,
+        headheight=2cm
+	}
+\renewcommand{\headrulewidth}{0pt}
+
+\graphicspath{{C:/Users/teoso/OneDrive/Documents/Tugas Kuliah/Template Math Depart/}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\jawab}{\textbf{Solusi}:}
+
+\title{Soal OSK Informatika}
+\author{Pigeonhole Principle}
+\date{19 April 2025}
+
+\begin{document}
+\maketitle
+  \begin{enumerate}
+    \item\textbf{(OSK 2008)} Sebuah laci berisikan 4 buah kaus kaki berwarna hitam, 4 buah kaus kaki berwarna putih, dan 4 buah kaus kaki berwarna merah. Jika kita tidak dapat melihat isi laci, berapakah jumlah kaus kaki minimum yang perlu diambil agar kita pasti mendapatkan setidaknya sepasang kaus kaki dengan warna yang sama?
+    \begin{multicols}{5}
+      \begin{enumerate}[label=\Alph*.]
+        \item 10
+        \item 6
+        \item 4
+        \item 8
+        \item 12
+    \end{enumerate}
+    \end{multicols}
+    \item\textbf{(OSK 2009)} Di dalam suatu keranjang terdapat sejumlah bola kelereng: 5 butir berwarna kuning, 6 butir berwarna biru dan 4 butir berwarna merah. Dengan ditutup matanya, Adi diminta untuk mendapatkan 3 butir kelereng yang warnanya sama. 
+
+    Untuk memastikan bahwa ia mendapatkan ketiga kelereng itu, minimal berapa butir kelereng yang harus ia ambil dari keranjang?
+    \begin{multicols}{5}
+    \begin{enumerate}[label=\Alph*.]
+        \item 3
+        \item 5
+        \item 7
+        \item 9
+        \item 11
+    \end{enumerate}
+  \end{multicols}
+    \item\textbf{(OSK 2016)} Anthony ingin bermain sulap. Dia memiliki 10 kandang burung dengan kapasitas maksimal masing-masing 5 burung. Dia menyediakan beberapa burung dan meminta seorang penonton memasukkan semua burung tersebut ke dalam kandang-kandang tanpa dilihat oleh Anthony. 
+    Berapakah burung yang harus disediakan Anthony supaya dia bisa dengan pasti mengatakan dengan yakin bahwa "Setidaknya pasti ada 3 kandang yang berisi 2 burung"?
+    \begin{multicols}{5}
+    \begin{enumerate}[label=\Alph*.]
+        \item 8
+        \item 13
+        \item 14
+        \item 19
+        \item 20
+    \end{enumerate}
+  \end{multicols}
+    \item\textbf{(OSK 2023)} Terdapat 2 kotak tertutup yang masing-masing berisi 40 buah. Sebanyak 7 dari 80 buah tersebut dalam keadaan busuk, dan sisanya segar. Diketahui beberapa pernyataan berikut:
+    \begin{itemize}
+      \item setiap kotak berisi setidaknya 36 buah segar
+      \item salah satu kotak berisi lebih dari 3 buah busuk
+      \item salah satu kotak berisi setidaknya 37 buah segar
+      \item tepat satu kotak berisi setidaknya 33 buah segar
+    \end{itemize}
+    Manakah pernyataan di atas yang pasti benar?
+    
+    \begin{enumerate}[label=\Alph*.]
+      \item 2 dan 3
+      \item 1 dan 2
+      \item 1 dan 3
+      \item 1, 2, dan 3
+      \item 1, 2, 3, dan 4
+    \end{enumerate}
+
+    \item\textbf{(OSK 2023)} Pak Dengklek mempunyai 5 bebek. Pak Dengklek ingin memberikan 2 mainan kepada masing-masing bebeknya. Pak Dengklek berada di mesin capit yang tertutup. Setiap kali bermain, Pak Dengklek harus membayar Rp 10.000 dan dijamin mendapat 1 mainan secara acak. Mesin capit menyediakan 16 boneka, 4 bola, 7 mobil-mobilan, dan 2 puzzle. 
+    Agar bebek-bebeknya tidak iri, Pak Dengklek ingin memastikan semua bebeknya mendapatkan kombinasi jenis mainan yang sama. Berapa uang minimal yang perlu dipersiapkan agar dijamin mendapat mainan yang diinginkan?
+    Jika jumlah kandang tidak terbatas, ada berapa banyak cara yang bisa dilakukan oleh Pak Dengklek untuk menyusun kandang-kandang tersebut?
+    
+    \textbf{Jawaban:} \dotfill \emph{(tuliskan jawaban dalam bentuk ANGKA saja tanpa tanda baca dan tanpa simbol rupiah)}
+    
+
+    \item\textbf{(OSK 2024)} Pak Dengklek sedang belajar membuat biskuit. Ia membuat beberapa tipe biskuit berbeda yang masing-masing tipe diletakkan pada toples-toples yang berbeda. Karena bahan-bahan yang diperlukan untuk membuat masing-masing tipe biskuit berbeda, bisa jadi tiap toples berisi banyak butir biskuit yang berbeda pula. Pak Dengklek kemudian mengundang bebek-bebeknya untuk mencicipi biskuit-biskuit buatannya. Satu per satu, para bebek bebas mengambil satu butir biskuit mana pun yang mereka ingin cicipi. Agar Pak Dengklek mendapatkan ulasan yang cukup konkret, ia ingin semua tipe biskuit pernah dicicipi oleh sekian ekor bebek. Pak Dengklek ingin mencari tahu minimal bebek yang perlu diundang untuk mencicipi biskuit-biskuitnya.
+    \begin{enumerate}
+      \item Asumsikan Pak Dengklek sudah membuat 7 tipe biskuit berbeda, yang masing-masing terdiri dari 5 butir biskuit. Jika Pak Dengklek ingin semua tipe biskuit pernah dicicipi oleh setidaknya 1 ekor bebek, berapa \textbf{minimal} bebek yang perlu diundang oleh Pak Dengklek?
+      
+      \textbf{Tuliskan jawaban dalam bentuk ANGKA.}
+
+      \item Asumsikan Pak Dengklek sudah membuat 100 tipe biskuit berbeda. Biskuit tipe 1 terdiri dari 10 butir, biskuit tipe 2 terdiri dari 20 butir, biskuit tipe 3 terdiri dari 30 butir, dan seterusnya hingga biskuit tipe 100 terdiri dari 1000 butir. Jika Pak Dengklek ingin semua tipe biskuit pernah dicicipi oleh setidaknya 5 ekor bebek, berapa minimal bebek yang perlu diundang oleh Pak Dengklek?
+      
+      \textbf{Tuliskan jawaban dalam bentuk ANGKA.}
+
+      \item Asumsikan Pak Dengklek sudah membuat 3 tipe biskuit berbeda. Biskuit tipe 1 terdiri dari $A$ butir, biskuit tipe 2 terdiri dari $B$ butir, dan biskuit tipe 3 terdiri dari $C$ butir. Diketahui bahwa total biskuit yang dibuat Pak Dengklek adalah 25 (dengan kata lain, $A + B + C = 25$). Jika diketahui pula bahwa Pak Dengklek perlu mengundang minimal 20 ekor bebek agar semua tipe biskuit pernah dicicipi oleh setidaknya 1 ekor bebek, maka berapa banyak triplet $( A, B, C )$ berbeda yang mungkin?
+      
+      \textbf{Tuliskan jawaban dalam bentuk ANGKA.}
+    \end{enumerate}
+  \end{enumerate}
+\end{document}
