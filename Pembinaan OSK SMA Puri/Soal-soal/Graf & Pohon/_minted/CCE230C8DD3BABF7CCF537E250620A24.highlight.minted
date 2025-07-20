@@ -1,8 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{+w}{  }\PYG{n}{fungsi}\PYG{+w}{ }\PYG{n}{cari}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{:}
-\PYG{+w}{    }\PYG{c+c1}{//jika nilai x tidak kosong:}
-\PYG{+w}{    }\PYG{n}{cari}\PYG{p}{(}\PYG{n}{kiri}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
-\PYG{+w}{    }\PYG{n}{cari}\PYG{p}{(}\PYG{n}{tengah}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
-\PYG{+w}{    }\PYG{n}{cari}\PYG{p}{(}\PYG{n}{kanan}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
-\PYG{+w}{    }\PYG{c+c1}{//letakkan x dalam box}
-\end{MintedVerbatim}

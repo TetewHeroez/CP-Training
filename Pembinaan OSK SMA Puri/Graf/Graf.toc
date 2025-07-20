@@ -1,6 +1,0 @@
-\babel@toc {bahasa}{}\relax 
-\beamer@sectionintoc {1}{Graf}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{Terminologi}{4}{0}{1}
-\beamer@subsectionintoc {1}{2}{Graf Hamiltonian}{9}{0}{1}
-\beamer@subsectionintoc {1}{3}{Graf Euler}{14}{0}{1}
-\beamer@sectionintoc {2}{Pohon}{18}{0}{2}
